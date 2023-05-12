@@ -17,5 +17,21 @@ app.get("/about", (req, res) => {
   res.render("about");
 });
 
+app.get("/products", (req, res) => {
+  res.render("products");
+});
+
+app.get("/cart", (req, res) => {
+  res.render("add");
+});
+
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
+app.get("/register", (req, res) => {
+  res.render("register");
+});
+
 const PORT = process.env.PORT || 4100;
 app.listen(PORT, () => console.log(`Server ${PORT} chi portda ishga tushdi`));
