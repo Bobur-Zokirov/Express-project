@@ -1,5 +1,11 @@
 <div class="w-50 mx-auto">
     <h2>Login</h2>
+    {{#if loginError}}
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            <strong class="text-danger fs-5 me-3">Error!</strong> <span class="fs-5">{{loginError}}</span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {{/if}}
     <form action="/login" method="post">
         <div class="form-floating mb-3">
             <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
