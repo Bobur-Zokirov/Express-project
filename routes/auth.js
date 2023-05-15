@@ -31,8 +31,26 @@ router.post("/register", async (req, res) => {
   res.redirect("/");
 });
 
-router.post("/login", (req, res) => {
-  console.log(req.body);
+router.post("/login", async (req, res) => {
+  // console.log(req.body);
+
+  const existUser = await User.findOne({ email: req.body.email });
+  if (!existUser) {
+    console.log("User not Found");
+    return;
+  }
+
+  const isPassworMatch = await bcrypt.compare(
+    req.body.password,
+    existUser.password
+  );
+  if (!isPassworMatch) {
+    console.log("Password is wrong");
+    return;
+  }
+
+  console.log(existUser);
+
   res.redirect("/");
 });
 
