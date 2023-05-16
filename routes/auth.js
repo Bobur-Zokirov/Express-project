@@ -1,6 +1,7 @@
 import { Router } from "express";
 import bcrypt from "bcrypt";
 import User from "../models/User.js";
+import { generateJWTToken } from "../services/token.js";
 
 const router = Router();
 
@@ -40,6 +41,7 @@ router.post("/register", async (req, res) => {
     res.redirect("/register");
     return;
   }
+
   const hashedPassword = await bcrypt.hash(password, 10);
   const userData = {
     firstName: firstname,
@@ -47,7 +49,11 @@ router.post("/register", async (req, res) => {
     email: email,
     password: hashedPassword,
   };
+
   const user = await User.create(userData);
+  const token = generateJWTToken(user._id);
+  res.cookie("token", token, { httpOnly: true, secure: true });
+
   res.redirect("/");
 });
 
@@ -63,6 +69,7 @@ router.post("/login", async (req, res) => {
   }
 
   const existUser = await User.findOne({ email });
+
   if (!existUser) {
     req.flash("loginError", "User not found");
     res.redirect("/login");
@@ -75,6 +82,9 @@ router.post("/login", async (req, res) => {
     res.redirect("/login");
     return;
   }
+
+  const token = generateJWTToken(existUser._id);
+  res.cookie("token", token, { httpOnly: true, secure: true });
 
   res.redirect("/");
 });
