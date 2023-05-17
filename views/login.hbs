@@ -1,5 +1,5 @@
-<div class="w-50 mx-auto">
-    <h2>Login</h2>
+<div class="w-50 mx-auto  bg-dark p-4">
+    <h2 class="text-white mb-3">Login</h2>
     {{#if loginError}}
         <div class="alert alert-primary alert-dismissible fade show" role="alert">
             <strong class="text-danger fs-5 me-3">Error!</strong> <span class="fs-5">{{loginError}}</span>
@@ -15,7 +15,6 @@
             <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
             <label for="floatingPassword">Password</label>
         </div>
-        <button type="s
-        " class="btn btn-primary w-25">Login</button>
+        <button type="submit" class="btn btn-primary w-25">Login</button>
     </form>
 </div>

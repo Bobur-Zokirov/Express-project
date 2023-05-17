@@ -1,1 +1,25 @@
-<h1>Add page</h1>
+<div class="w-75 mx-0 bg-dark p-4">
+    <h2 class="mb-3 text-white">Add product</h2>
+    <form action="/add-products" method="post">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="title" id="floatingTitle" placeholder="Title">
+            <label for="floatingTitle">Title</label>
+        </div>
+        
+        <div class="form-floating mb-3">
+            <textarea type="text" class="form-control" name="description" id="floatingDescription" placeholder="Description" style="height: 100px"></textarea>
+            <label for="floatingDescription">Description</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="image" id="floatingImage" placeholder="Image"/>
+            <label for="floatingImage" class="form-label">Choose image</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" name="price" id="floatingPrice" placeholder="Price"/>
+            <label for="floatingPrice" class="form-label">$Price</label>
+        </div>
+        <button type="submit" class="btn btn-success w-10 py-3 px-4">Add product</button>
+    </form>
+</div>
