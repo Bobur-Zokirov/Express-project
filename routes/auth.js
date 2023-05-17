@@ -8,6 +8,10 @@ const router = Router();
 // ---------- LOGUN GET ----------- //
 
 router.get("/login", (req, res) => {
+  if (req.cookies.token) {
+    res.redirect("/");
+    return;
+  }
   res.render("login", {
     title: "Login | Shop",
     isLogin: true,
@@ -18,11 +22,22 @@ router.get("/login", (req, res) => {
 // ---------- REGISTER GET ----------- //
 
 router.get("/register", (req, res) => {
+  if (req.cookies.token) {
+    res.redirect("/");
+    return;
+  }
   res.render("register", {
     title: "Register | Shop",
     isRegister: true,
     registerError: req.flash("registerError"),
   });
+});
+
+// ---------- LOGOUT GET ----------- //
+
+router.get("/logout", (req, res) => {
+  res.clearCookie("token");
+  res.redirect("/");
 });
 
 // ---------- REGISTER POST ----------- //
