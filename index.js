@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 import * as dotenv from "dotenv";
 import flash from "connect-flash";
 import session from "express-session";
+import varMiddleware from "./middleware/var.js";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
@@ -24,6 +26,8 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(session({ secret: "Sammi", resave: false, saveUninitialized: false }));
 app.use(flash());
+app.use(cookieParser());
+app.use(varMiddleware);
 
 app.use(AuthRouter);
 app.use(ProductsRouter);

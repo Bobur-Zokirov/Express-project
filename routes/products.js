@@ -5,7 +5,6 @@ const router = Router();
 router.get("/", (rep, res) => {
   res.render("index", {
     title: "Boom | Shop",
-    token: true,
   });
 });
 
