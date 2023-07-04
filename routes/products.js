@@ -5,9 +5,11 @@ import userMiddleware from "../middleware/user.js";
 
 const router = Router();
 
-router.get("/", (rep, res) => {
+router.get("/", async (rep, res) => {
+  const products = await Product.find().lean();
   res.render("index", {
     title: "Boom | Shop",
+    products: products,
   });
 });
 
