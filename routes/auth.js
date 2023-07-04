@@ -2,16 +2,17 @@ import { Router } from "express";
 import bcrypt from "bcrypt";
 import User from "../models/User.js";
 import { generateJWTToken } from "../services/token.js";
+import { isToken } from "../middleware/auth.js";
 
 const router = Router();
 
 // ---------- LOGUN GET ----------- //
 
-router.get("/login", (req, res) => {
-  if (req.cookies.token) {
-    res.redirect("/");
-    return;
-  }
+router.get("/login", isToken, (req, res) => {
+  // if (req.cookies.token) {
+  //   res.redirect("/");
+  //   return;
+  // }
   res.render("login", {
     title: "Login | Shop",
     isLogin: true,
@@ -21,11 +22,11 @@ router.get("/login", (req, res) => {
 
 // ---------- REGISTER GET ----------- //
 
-router.get("/register", (req, res) => {
-  if (req.cookies.token) {
-    res.redirect("/");
-    return;
-  }
+router.get("/register", isToken, (req, res) => {
+  // if (req.cookies.token) {
+  //   res.redirect("/");
+  //   return;
+  // }
   res.render("register", {
     title: "Register | Shop",
     isRegister: true,

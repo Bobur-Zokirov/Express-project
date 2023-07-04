@@ -1,5 +1,7 @@
 import { Router } from "express";
 import Product from "../models/Product.js";
+import { noToken } from "../middleware/auth.js";
+import userMiddleware from "../middleware/user.js";
 
 const router = Router();
 
@@ -16,20 +18,23 @@ router.get("/products", (req, res) => {
   });
 });
 
-router.get("/cart", (req, res) => {
-  if (!req.cookies.token) {
-    res.redirect("/login");
-    return;
-  }
+router.get("/cart", noToken, (req, res) => {
   res.render("add", {
     title: "Cart | Shop",
     isCart: true,
+    productError: req.flash("productError"),
   });
 });
 
-router.post("/add-products", async (req, res) => {
+router.post("/add-products", userMiddleware, async (req, res) => {
   const { title, description, image, price } = req.body;
-  const products = await Product.create(req.body);
+  if (!title || !description || !image || !price) {
+    req.flash("productError", "All fields is required");
+    res.redirect("/cart");
+    return;
+  }
+
+  await Product.create({ ...req.body, user: req.userId });
   res.redirect("/");
 });
 

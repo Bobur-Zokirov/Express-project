@@ -1,5 +1,11 @@
 <div class="w-75 mx-0 bg-dark p-4">
     <h2 class="mb-3 text-white">Add product</h2>
+    {{#if productError}}
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            <strong class="fs-5 me-3 text-danger">Error!</strong> <span class="fs-5">{{productError}}</span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {{/if}}
     <form action="/add-products" method="post">
         <div class="form-floating mb-3">
             <input type="text" class="form-control" name="title" id="floatingTitle" placeholder="Title">
