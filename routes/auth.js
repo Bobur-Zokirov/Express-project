@@ -9,10 +9,6 @@ const router = Router();
 // ---------- LOGUN GET ----------- //
 
 router.get("/login", isToken, (req, res) => {
-  // if (req.cookies.token) {
-  //   res.redirect("/");
-  //   return;
-  // }
   res.render("login", {
     title: "Login | Shop",
     isLogin: true,
@@ -23,10 +19,6 @@ router.get("/login", isToken, (req, res) => {
 // ---------- REGISTER GET ----------- //
 
 router.get("/register", isToken, (req, res) => {
-  // if (req.cookies.token) {
-  //   res.redirect("/");
-  //   return;
-  // }
   res.render("register", {
     title: "Register | Shop",
     isRegister: true,
