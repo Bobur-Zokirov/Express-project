@@ -24,3 +24,21 @@ h5 a:hover {
     margin: 0;
     padding: 0;
 }
+
+.product-image {
+    width: 100%;
+    height: 60vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.detail-card {
+    padding: 20px;
+    background: #d6d0d0;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+}

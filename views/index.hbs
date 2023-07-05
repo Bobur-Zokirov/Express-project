@@ -4,19 +4,15 @@
         {{#each products}}
             <div class="col py-4">
                 <div class="card">
-                    <a href=/products/{{_id}}>
+                    <a href="/product/{{_id}}">
                         <img src={{image}} class="img-thumbnail img-fluid hover-img" alt={{title}}>
                     </a>
                     <div class="card-body px-2">
                         <h5 class="card-title text-capitalize">
-                            <a href=/products/{{_id}}>
+                            <a href="/product/{{_id}}">
                                 {{this.title}}
                             </a>
                         </h5>
-                            {{!-- <div class="d-flex gap-3 justify-content-between">
-                                <p class="fs-6">created {{createDate createdAt}}</p>
-                                <p class="fs-6">update {{createDate updatedAt}}</p>
-                            </div> --}}
                         <div class="avatar">
                             <small>Created by: </small>
                             <p class="text-capitalize fw-bold fs-5">{{user.firstName}}</p>
@@ -24,8 +20,8 @@
                         </div>
                     </div>
                     <div class="card-footer px-2 py-0 m-0 d-flex justify-content-between align-items-center">
-                        <small class="ms-1 fst-italic text-break">Created at: {{createDate createdAt}}</small>
-                        <small class="fs-5 px-2 text-primary">${{this.price}}</small>
+                        <small class="ms-1 fst-italic text-break">Created at: <b>{{createDate createdAt}}</b></small>
+                        <small class="fs-5 px-2 text-primary">${{this.price}}.00</small>
                     </div>
                 </div>
             </div>

@@ -31,12 +31,12 @@ router.get("/products", async (req, res) => {
   });
 });
 
-router.get("/products/:id", async (req, res) => {
-  // const myProducts = await Product.find().lean();
-  res.render("index", {
-    title: "Products | Shop",
+router.get("/product/:id", async (req, res) => {
+  const product = await Product.findById(req.params.id).lean();
+  res.render("product", {
+    title: "Product Detail | Shop",
+    product: product,
     // isProducts: true,
-    // myProducts: myProducts.reverse(),
   });
 });
 

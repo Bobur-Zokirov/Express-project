@@ -1,0 +1,29 @@
+<div class="card detail-card">
+  <div class="row g-0">
+    <div class="col-md-4 image-container">
+      <img src={{product.image}} class="img-fluid" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{product.title}}</h5>
+        <p class="card-text">{{product.description}}</p>
+        <div class="d-flex gap-3">
+            <p class="card-text"><small class="text-body-secondary">Created at: <b>{{createDate product.createdAt}}</b></small></p>
+            <b class="card-text">${{product.price}}.00</b>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- <div class="m-0">
+    <div class="product-image" style="background-image: url({{product.image}});"></div>
+    <h2 class="mt-2">{{product.title}}</h2>
+    <div class="d-flex gap-2 align-items-center mb-2">
+        <p class="text-muted p-0 m-0">Created at: <b>{{createDate product.createdAt}}</b></p>
+        <p class="p-0 m-0"><b>${{product.price}}.00</b></p>
+    </div>
+    <div class="desc">
+        <p>{{product.description}}</p>
+    </div>
+</div> --}}
