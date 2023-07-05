@@ -1,0 +1,18 @@
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border-radius: 10px; */
+    padding: 5px 15px;
+    gap: 15px;
+    color: #000;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.avatar p {
+    margin: 0;
+    padding: 0;
+}

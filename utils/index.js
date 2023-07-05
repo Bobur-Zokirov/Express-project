@@ -5,4 +5,8 @@ export default {
     }
     return options.inverse(this);
   },
+
+  getNameFirstChar(firstname, lastname) {
+    return firstname.charAt(0) + lastname.charAt(0);
+  },
 };
